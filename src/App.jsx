@@ -1,17 +1,20 @@
+import PersonalData from './Components/PersonalData.jsx'
+import Education from './Components/Education.jsx'
+import Experience from './Components/Experience.jsx'
 
 
-import './App.css'
+import './Styles/App.css'
 
 function App() {
  
 
   return (
-    <>
+    <div className='App'>
+     <PersonalData/>
+     <Education/>
+     <Experience/>
 
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
