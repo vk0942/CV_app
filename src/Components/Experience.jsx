@@ -58,13 +58,16 @@ export default function Education(){
           </div>
           </div>
           <div className="RIGHT">
-            <div className="schoolname">
+          <div style = {{width:90+'%' , border:1 + 'px solid black', marginLeft: 37 +'px'}}></div>
+            <br></br>
+            <h1>Experience</h1>
+            <div className="company">
                  {company}
             </div>
             <div className="city">
                  {city}
             </div>
-            <div className="degree">
+            <div className="position">
                 {position}
             </div>
             <div className="duration">

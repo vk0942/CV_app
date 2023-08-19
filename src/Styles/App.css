@@ -4,6 +4,7 @@ body{
     overflow:hidden;
     margin:0;
     padding:0;
+    background: linear-gradient(90deg,rgb(72, 148, 202) ,white,rgb(55, 117, 188));
 }
 div{
     margin:0;
@@ -13,7 +14,11 @@ h1{
     margin:0;
     padding:0;
 }
-
+.Header{
+    text-align: center;
+    margin-bottom: 3%;
+    font-size:larger;
+}
 .App{
     margin:0;
     padding:0;
@@ -23,18 +28,27 @@ h1{
     border:1px solid blue;
 }
 .LEFT{
-    min-width: 50%;
+    flex:1;
+    width: 60%;
     flex-shrink: 0;
-    border:2px solid rgb(255, 0, 0);
+    border-left: 2px solid black;
+    border-right: 2px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background-color: rgb(192, 249, 249);
 }
 .RIGHT{
-    width:50%;
-    border:2px solid black;
+    width:40%;
+    border:4px solid rgb(0, 0, 0);
+    border-bottom: 0px;
+    border-top: 0px;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    padding:10px;
+    padding-left: 30px;
+    padding-right:30px;
 }
 .PersonalData{
    flex:1;
@@ -42,12 +56,19 @@ h1{
    justify-content: space-between;
    max-height: 300px;
 }
+.PersonalData .RIGHT{
+    border-top:5px solid rgb(0, 60, 71);
+}
+.Experience .RIGHT{
+    border-bottom: 5px solid rgb(0, 0, 0);
+}
 .personal_info{
     margin-left:10%;
     margin-right: 10%;
-    border:1px solid black;
+    border:2px solid black;
     margin-bottom:0px;
     margin-top:30px;
+    padding:6px;
 }
 .personal_info div{
     display:flex;
@@ -71,9 +92,10 @@ textarea{
 .education{
     margin-left:10%;
     margin-right: 10%;
-    border:1px solid black;
+    border:3px solid rgb(0, 0, 0);
     margin-bottom:0px;
     margin-top:30px;
+    padding:6px;
 }
 .education div{
     display:flex;
@@ -91,9 +113,10 @@ textarea{
 .experience{
     margin-left:10%;
     margin-right: 10%;
-    border:1px solid black;
+    border:2px solid black;
     margin-bottom:0px;
     margin-top:30px;
+    padding:6px;
 }
 .experience div{
     display:flex;
@@ -104,6 +127,51 @@ textarea{
     margin:4px;
 }
 .fullname{
-    font-size:35px;
+    
     font-weight:500;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.circle {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
+    
+   
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.description{
+    width:90%;
+    font-size:smaller;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    word-wrap: break-word;
+    border:1px solid blue;
+    margin-left:20px;
+    margin-right:20px;
+}
+.addressR{
+    flex:1;
+    text-align: right;
+  
+}
+.profiledescription{
+    
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.element::-webkit-input-placeholder{
+    font-weight:200;
+     color:black;
 }

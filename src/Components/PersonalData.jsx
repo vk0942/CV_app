@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import profileImg from '../assets/profile.png'
 export default function PersonalData(){
 
     function checkIfEmail(str) {
@@ -8,13 +8,14 @@ export default function PersonalData(){
       
         return regexExp.test(str);
     }
-    const [firstname,setfirstname] = useState("");
-    const [lastname,setlastname] = useState("");
-    const [country , setcountry] = useState("");
-    const [address , setaddress] = useState("");
-    const [email , setemail] = useState("");
-    const [phone , setphone] = useState("");
-    const [description , setdescription] = useState("");
+    const [profileimage , setprofileimage] = useState(null);
+    const [firstname,setfirstname] = useState(null);
+    const [lastname,setlastname] = useState(null);
+    const [linkedin, setlinkedin] = useState(null);
+    const [address , setaddress] = useState(null);
+    const [email , setemail] = useState(null);
+    const [phone , setphone] = useState(null);
+    const [description , setdescription] = useState(null);
     
 
     return(
@@ -41,8 +42,8 @@ export default function PersonalData(){
             <div className="address">
                 <input
                  type="text"
-                 value = {country}
-                 onChange={(event) => setcountry(event.target.value)}
+                 value = {linkedin}
+                 onChange={(event) => setlinkedin(event.target.value)}
                  placeholder="Country"
                 />  
                 <input
@@ -62,6 +63,7 @@ export default function PersonalData(){
                 <input
                 type = "number"
                 value = {phone}
+                maxLength={10}
                 onChange={(event) => setphone(event.target.value)}
                 placeholder="phone no "
                 />
@@ -75,32 +77,71 @@ export default function PersonalData(){
                   onChange={(event) => setdescription(event.target.value)}
                  />
             </div>
+            <div>
+                Upload image
+                <input
+                 type = "file"
+                 name = 'profile_imgae'
+                 onChange={(event) => {
+                    console.log(event.target.files[0]);
+                    setprofileimage(event.target.files[0]);
+                  }}
+                 />
+            </div>
           </div>
           </div>
           <div className="RIGHT">
+           <div className="wrapper">
             <div className="contact">
                 <div className="email">
+                   Email :- 
                    {
-                    (checkIfEmail(email)||email==="")? email: <p style = {{color: "red"}}>Enter valid Email</p>
+                    email ? (checkIfEmail(email)||email===null)? email: <p style = {{color: "red"}}>Enter valid Email</p> : <span>vanshkathnawal0942@gmail.com</span>
                    }
                 </div>
-                <div className="phone_no">{phone}</div>
+                <div className="phone_no">phone_no :-{phone? phone: 9829498641}</div>
             </div>
-            <div>
+            <div className="addressR">
+                <div className="home_address">Address :- {address? address: "FH 786 scheme no 78 Bilaspur Dombiwali India"}</div>
+                <div className="linkedin">
+                    {linkedin?  <a href = {linkedin}>{linkedin}</a>:  <a href = "https://www.linkedin.com/in/vanshkathnawal/">https://www.linkedin.com/in/vanshkathnawal/</a>}
+                   
+                </div>
+            </div>
+            <hr/>
+            </div>
             <div className="fullname">
-                 {firstname + " "}  {" " + lastname}
+                 <div style = {{display: "flex"}}>
+                 {
+                 firstname ? firstname + " " : <h1 style ={{marginRight:8 + "px"}}>Vansh</h1>
+                 }
+                 {
+                  lastname ? lastname + " " : <h1> kathnawal</h1>
+                 }
+                 </div>
+                 
+                  
+                 <div className="circle">
+                    <img
+                        alt="not found"
+                        width={"250px"}
+                        src=  {profileimage ? URL.createObjectURL(profileimage) : profileImg}
+
+                    />
+                </div>
+                 
+
             </div>
-            <img/>
-            </div>
-            <div className="address">
-                <div className="home_address">{address}</div>
-                <div className="country">{country}</div>
+           
+        
+          
+            <div className="profiledescription">
+                <span>Profile Description</span>
+                <div style = {{wordWrap:"break-word"}} className = "description">{description}</div>    
             </div>
 
-            <div>
-                <h3>Profile</h3>
-                <p>{description}</p>
-            </div>
+            
+
           </div>
         </div>
     )

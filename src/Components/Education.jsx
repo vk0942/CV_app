@@ -58,6 +58,9 @@ export default function Education(){
           </div>
           </div>
           <div className="RIGHT">
+            <div style = {{width:90+'%' , border:1 + 'px solid black', marginLeft: 37 +'px'}}></div>
+            <br></br>
+            <h1>Education</h1>
             <div className="schoolname">
                  {school}
             </div>
